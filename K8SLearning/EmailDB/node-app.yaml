@@ -17,25 +17,22 @@ spec:
         app: node-app
     spec:
       containers:
-      - name: node-app
-        # Run this image
-        image: suyashmishra013/emaildb:03
-        env:
-        - name: MONGO_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: mongo-config
-              key: MONGO_HOST
-        - name: MONGO_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: mongo-config
-              key: MONGO_PORT
+        - name: node-app
+          # Run this image
+          image: suyashmishra013/emaildb:03
+          env:
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-config
+                  key: MONGO_HOST
+            - name: MONGO_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-config
+                  key: MONGO_PORT
 
-
---- 
-
-
+---
 apiVersion: v1
 kind: Service
 metadata:
