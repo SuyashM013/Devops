@@ -1,0 +1,6 @@
+Build image - docker build -t <image-name> .
+Run - docker run -d -p 5173:5173 image-name
+List conatiners - docker ps
+All containers - docker ps -All
+All docker images - docker image Ls 
+stop containers - docker stop cont_name, con_id
