@@ -3,7 +3,7 @@ ubuntu@ip-172-31-22-178:/home$ history
     whoami -> user kon hai
     clear
 
-    echo "yooo" -> print krne ke lie
+    echo "yooo" -> print krne ke lie terminal me
 
 NAVIGATION COMMANDS ------------------
     ls -> list files
