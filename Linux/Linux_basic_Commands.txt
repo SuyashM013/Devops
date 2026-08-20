@@ -1,0 +1,62 @@
+ubuntu@ip-172-31-22-178:/home$ history
+
+    whoami -> user kon hai
+    clear
+
+    echo "yooo" -> print krne ke lie
+
+NAVIGATION COMMANDS ------------------
+    ls -> list files
+    pwd -> present working directory
+    cd -> change directory
+
+FILE OPERATIONS ------------------
+    mkdir devops -> create folder / direc
+    touch my-file.txt -> create file
+    mv file.txt project/ -> move file into project folder
+    cp file.txt project/ -> make a copy of file into project folder
+
+
+     
+    man pwd -> provide details about pwd 
+     
+    vim intro.txt -> text editor create file and provide option to write into it
+    for writing ----------->
+    i for insert mode -> write into file -> esc to exit insert mode -> :wq to save file and its content
+
+    cat my-file.txt  -> view file
+
+DELETE FILE ------------------
+
+    rm file.txt
+    rm -r folder
+    rm -rf folder -> force remove
+    rm -v file.txt -> shows file deleted
+
+UPDATION and UPGRADATION and INSTALLATION---------------
+
+    sudo apt update
+    sudo apt upgrade
+
+    sudo apt-get install nginx -> install nginx
+    sudo systemctl stop nginx -> stop server
+    systemctl status nginx -> check status
+
+    to run web pages using nginx ->
+
+    cd /var
+    ls
+    cd www
+    ls
+    cd html
+    vim html
+    sudo vim index.html
+    systemctl status nginx
+    sudo service nginx restart
+
+
+ADDING USER ---------------------
+    sudo useradd -m suyash -> add user
+    sudo passwd suyash -> add password
+    su suyash -> switch user
+    
