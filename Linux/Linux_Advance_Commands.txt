@@ -1,0 +1,89 @@
+Accessing AWS with ssh -------------------
+    Key gen ki thi wo 1 folder me add krdo and usi folder me jake -> ssh cmd paste from AWS
+
+Connecting 2 server ---------------
+
+SERVER A ->
+    generate key in .ssh folder -  ssh-keygen
+    cat id_ed25519 -> private
+    cat id_ed25519.pub -> public
+
+SERVER B ->
+    cd .ssh
+    vim authorized_keys -> public key paste krdo from SERVER A, :wq save
+
+SERVER A -> 
+    cd .ssh
+    ssh -i id_ed25519 server-b ka ip (Public) 
+
+
+list all users in server -------------------
+    cat /etc/passwd -> 
+
+new user select krte time wo sh me create hoga to sirf $ aata, full address chaiye to bash me krna hoga --------------------- 
+    sudo useradd -m tappu -s /bin/bash
+
+create group -------------------
+    sudo groupadd devops
+
+see groups ---------------------
+    cat /etc/group
+
+Adding users to group ---------------
+    sudo gpasswd -M suyash,babita devops
+
+Remove user from group --------------------
+    sudo gpasswd -d babita devops
+
+List files in long formate -------------------
+    ls -la
+
+    drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 18 07:02 devops
+    -rw-rw-r-- 1 ubuntu ubuntu   87 Aug 19 06:00 intro.txt
+
+    rw- rw- r--
+    │   │   │
+    │   │   └── others
+    │   └────── group
+    └────────── owner
+
+    | Permission | Meaning |
+    | ---------- | ------- |
+    | `r`        | read    |
+    | `w`        | write   |
+    | `x`        | execute |
+
+    chmod 400 intro.txt -> changing file Permission
+
+    Permission le lie truth table bana lo ->
+
+    R W x
+    0 0 0 - 0
+    0 0 1 - 1
+    0 1 0 - 2
+    0 1 1 - 3
+    1 0 0 - 4
+    1 0 1 - 5
+    1 1 0 - 6
+    1 1 1 - 7
+    
+    400 means -> only read for owner and no access for groups and others
+    477 means -> read for owner, and group and others ko sare access (RWX)
+
+Changing file Permission -----------------------
+
+    sudo chown tappu into.txt -> change to tappu
+    sudo chgrp tappu intro.txt -> change grp to tappu
+
+Search words in file or logs ----------------------
+
+    grep -i "authentication failure" application.log
+    awk '/authentication failure/ {print}' application.log -> using awk
+    
+    awk '/authentication failure {print $12, $13, $14, $15}' application.log
+
+    awk '/authentication failure/ {if($1 == "Jul" && ($2 == "11"))print $1, $2, $3, $12, $13, $14, $15}' application.log -> with conditions
+
+    
+
+
