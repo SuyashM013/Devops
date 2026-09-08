@@ -1,0 +1,91 @@
+
+Networking ---------------------------------
+
+Shows IP of that website ----
+    nslookup ---url---
+
+Download file from web address ----
+    wget link address
+
+LINUX VOLUMES ------------------------------------
+
+List blocks, kon sa disk or volume attack hai ---
+    lsblk
+
+Kitni disk space free hai, usage sari details ---
+    df -ha
+
+AWS Elastic Volume ------------
+    zone should be same,
+    select from f,g,h,i,j,k
+    see in linux -> 
+    lsblk -> xvdf....
+
+    flow ->
+    AWS EBS -> Disk -> Partition -> Filesystem (ext4) -> Mount point -> /data -> Files store in this directory
+
+(LVM) Logical Volume Manager ---------------
+Storage Management Layer
+
+    LV -> VG -> PV
+
+Switch to admin user
+    sudo -su
+
+
+Physical Volumes ---------------
+    lvm --- enter lvm
+
+create pv ----
+    Pvcreate /dev/xvdf /dev/xvdg /dev/xvdh (jitni bh EBS banaye) (3 -> 10 12 14gb)
+
+check physical volumes ----
+    pvs
+
+Volume Groups -------------------
+    Vgcreate my_vg1 /dev/xvdf /dev/xvdg 
+    my_vg1 -> volume name and these are pV'sa
+
+See VG -----------------
+    vgs
+
+Logical Volumes -----------------
+
+create LV ------
+    Lvcreate -L 10G -n my_lv1 my_vg1
+    10G -> size of LV
+    my_lv1 -> LV name
+    my_vg1 -> is VG me se bana Do
+
+see LV ----------------
+    lvs
+
+All details for every part in detail ------------
+
+    pvdisplay, vgdisplay and lvdisplay
+
+
+Volume Mounting -------------------
+
+create a directory for mounting ---
+    mkdir /data
+
+Create a filesystem of type .ext4----
+    mkfs.ext4 /dev/my_vg1/my_lv1
+
+mount it ------
+    mount /dev/my_vg1/my_lv1 /data 
+
+now save data in /data and check lsblk
+
+Mounting PV ------------------------
+
+make directory -----
+    mkdir /mnt/data
+    mkfs -t ext4 /dev/xvdh
+    mount /dev/xvdh /mnt/data
+
+Extend storage form VG ---
+
+    lvextend +5G /dev/my_vg1/my_lv1
+
