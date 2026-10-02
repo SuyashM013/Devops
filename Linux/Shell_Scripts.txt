@@ -1,0 +1,34 @@
+A shell is a program that lets you communicate with teh linux OS
+Common Shells - BASH,SH, SSH, FISH
+
+Shell Scripts -> Instad of typing CMD one by one, we can put into a file and execute the file - .sh
+
+shebang---------------
+    #!/bin/bash 
+    it tells use /bin/bash to execute this Scripts
+
+Make file executeable ------------------------
+    chmod 764 suyash.sh / script_name.sh
+
+Run script -----------------------------------
+    ./suyash.sh
+    bash suyash.sh
+
+Suyash.sh ----->
+    echo "Print hoga echo se"
+    mkdir -p tempo -> agar tempo ka name ka folder ni hai to bana do warna rehnde do -p check karega
+    echo "new file banao " > temp.txt
+
+    make it executeable - chmod 764 Suyash.sh -> ./suyash.sh
+
+Comment --------------------------
+
+    #single line Comment
+    <help 
+    Multiline comment hai yh
+
+    help
+
+User defined Variables -----------------------
+
+         

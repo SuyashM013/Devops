@@ -1,0 +1,24 @@
+Create a Volume - 
+    docker volume create data
+    docker volume inspect data
+
+Create a Network - 
+    docker network create twotier
+    docker network inspect twotier
+
+Frontend - 
+    docker build -t frontend .
+    docker run -d --name frontend -e ENV=secret OR --env-file .env --network twotier -p 8000:5173 frontend
+
+Backend - 
+    docker build -t backend .
+    docker run -d --name backend --network twotier --env-file .env -p 1000:3000 backend
+
+Mongo - 
+    docker run --rm -d -name mongo -v data:/data/db --network twotier mongo
+
+See data in Mongo - 
+    docker exect -it ID mongosh
+    show dbs
+    use dbshow collections
+    db.users().find().pretty() -> JSON me 
